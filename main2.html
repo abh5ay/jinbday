@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .quiz-container {
+            background: #fff8f0;
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            box-sizing: border-box;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background: #d9534f;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+        h2 {
+            color: #d9534f;
+        }
+        @media (max-width: 400px) {
+            .quiz-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Quiz Time!</h2>
+        <p>1. What's my favourite color?</p>
+        <select id="q1">
+            <option value="brown">Brown</option>
+            <option value="peach">Peach</option>
+            <option value="porcelain">Porcelain</option>
+            <option value="black">Black</option>
+        </select>
+        <p>2. What's my nickname?</p>
+        <select id="q2">
+            <option value="dev">Dev</option>
+            <option value="aaditya">Aaditya</option>
+            <option value="ahaan">Ahaan</option>
+            <option value="chikku">Chikku</option>
+        </select>
+        <p>3. Which one is the first place we met?</p>
+        <select id="q3">
+            <option value="megha mosi house">Megha Mosi House</option>
+            <option value="chikku mosi house">Chikku Mosi House</option>
+            <option value="honey singh concert">Honey Singh Concert</option>
+            <option value="blackout">Blackout</option>
+        </select>
+        <p>4. Which is the first movie we saw?</p>
+        <select id="q4">
+            <option value="ddlj">DDLJ</option>
+            <option value="love aaj kal">Love Aaj Kal</option>
+            <option value="tu jhuthi main makkar">Tu Jhoothi Main Makkaar</option>
+            <option value="veer zaara">Veer Zaara</option>
+        </select>
+        <p>5. Which is our first trip together?</p>
+        <select id="q5">
+            <option value="jaipur">Jaipur</option>
+            <option value="pushkar">Pushkar</option>
+            <option value="goa">Goa</option>
+            <option value="delhi">Delhi</option>
+        </select>
+        <button onclick="checkAnswers()">Submit</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            let answers = {
+                q1: "porcelain",
+                q2: "dev",
+                q3: "chikku mosi house",
+                q4: "tu jhuthi main makkar",
+                q5: "pushkar"
+            };
+            
+            let userAnswers = {
+                q1: document.getElementById("q1").value,
+                q2: document.getElementById("q2").value,
+                q3: document.getElementById("q3").value,
+                q4: document.getElementById("q4").value,
+                q5: document.getElementById("q5").value
+            };
+            
+            if (JSON.stringify(answers) === JSON.stringify(userAnswers)) {
+                document.getElementById("result").innerHTML = "Your all answers are right! Now here is your link to <a href='message2.html'>message.html</a>";
+            } else {
+                document.getElementById("result").innerText = "Some answers are incorrect. Try again!";
+            }
+        }
+    </script>
+</body>
+</html>
